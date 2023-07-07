@@ -1,0 +1,16 @@
+---
+name: "IntelliJ Format"
+description: |
+  Enforces formatting style based on the
+  IntelliJ IDEA code style configurations.
+inputs:
+  code-style-path:
+    description: |
+      Path to code-style.xml, defaults to .idea/codeStyles/Project.xml
+    required: false
+    default: ".idea/codeStyles/Project.xml"
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+    - ${{ inputs.code-style-path }}
